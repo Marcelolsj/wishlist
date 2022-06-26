@@ -5,12 +5,12 @@
 
 ## Banco de dados
 
-Na pasta mongodb, executar o comando abaixo para criar o banco de dados.
+Na pasta mongodb, executar o comando abaixo para criar o banco de dados.  
 `sudo docker-compose up -d`
 
 ### Subir a aplicação localmente
 
-Na pasta raiz da aplicação, executar o comando abaixo.
+Na pasta raiz da aplicação, executar o comando abaixo.  
 `./gradlew bootRun`
 
 ### Acessando o Swagger

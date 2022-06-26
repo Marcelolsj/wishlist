@@ -1,7 +1,6 @@
 spring:
   data:
     mongodb:
-      #uri: mongodb://root:wishlist@localhost:27017/wishlist
       uri: mongodb://root:wishlist@localhost:27017/wishlist?authSource=admin
   mvc:
     pathmatch:
