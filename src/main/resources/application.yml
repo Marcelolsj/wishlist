@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      #uri: mongodb://root:wishlist@localhost:27017/wishlist
+      uri: mongodb://root:wishlist@localhost:27017/wishlist?authSource=admin
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+wishlist:
+  limit-products: 20
