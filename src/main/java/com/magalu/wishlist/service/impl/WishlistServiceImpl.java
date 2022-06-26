@@ -28,7 +28,7 @@ public class WishlistServiceImpl implements WishlistService {
     @Autowired
     private WishlistRepository wishlistRepository;
 
-    @Value("wishlist.limit-products")
+    @Value("${wishlist.limit-products}")
     @Setter
     private Integer limitProducts;
 
@@ -48,7 +48,7 @@ public class WishlistServiceImpl implements WishlistService {
                     .build();
         }
 
-        if (Objects.nonNull(this.limitProducts) && (wishlist.getProductList().size() >= this.limitProducts)) {
+        if (wishlist.getProductList().size() >= getLimitProducts()) {
             throw new APIException("Product limit has been reached", HttpStatus.BAD_REQUEST);
         }
 
@@ -124,5 +124,16 @@ public class WishlistServiceImpl implements WishlistService {
                 .collect(Collectors.toList());
 
         return productList.isEmpty() ? null : productList.get(0);
+    }
+
+    private int getLimitProducts() {
+        try {
+            if (Objects.nonNull(this.limitProducts) && (this.limitProducts > 0))
+                return this.limitProducts;
+            else
+                return 20;
+        } catch (Exception e) {
+            return 20;
+        }
     }
 }

@@ -9,11 +9,11 @@ services:
     volumes:
       - mongodb-data:/data/db
     networks:
-      - uteis_default
+      - mongodb_network
     ports:
       - 27017:27017
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo 10.10.10.60:27017/test --quiet
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
       interval: 30s
       timeout: 10s
       retries: 3
@@ -33,11 +33,11 @@ services:
     depends_on:
       - mongodb
     networks:
-      - uteis_default
+      - mongodb_network
     ports:
       - 8081:8081
     healthcheck:
-      test:  wget --quiet --tries=3 --spider http://admin:admin123@10.10.10.60:8081 || exit 1
+      test:  wget --quiet --tries=3 --spider http://admin:admin123@localhost:8081 || exit 1
       interval: 30s
       timeout: 10s
       retries: 3
@@ -46,5 +46,5 @@ volumes:
   mongodb-data:
     name: mongodb-data
 networks:
-  uteis_default:
-    external: true
+  mongodb_network:
+    name: mongodb_network

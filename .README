@@ -1,5 +1,0 @@
-# sudo docker-compose up -d
-
-mongodb-express: http://localhost:8081/
-
-swagger: http://localhost:8080/swagger-ui/index.html
