@@ -18,3 +18,5 @@ Na pasta raiz da aplicação, executar o comando abaixo.
 
 ### Acessando o banco de dados via browser
 * http://localhost:8081
+* Login: admin
+* Senha: admin123
